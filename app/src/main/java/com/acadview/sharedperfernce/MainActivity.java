@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,9 +27,26 @@ public class MainActivity extends AppCompatActivity {
         age = findViewById(R.id.age);
         btn = findViewById(R.id.btn);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+
+
+        btn .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(TextUtils.isEmpty(name.getText().toString())){
+                    name.setError("Field is  empty");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(cls.getText().toString())){
+                    cls.setError("Field is empty");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(age.getText().toString())){
+                    age.setError("Field is empty");
+                    return;
+                }
 
                 String userName, userAge, userClass = null;
 
